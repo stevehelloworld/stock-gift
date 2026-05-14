@@ -165,7 +165,10 @@ const App = () => {
           <div className="guide-content">
             <div className="guide-item">
               <h3>1. 確認領取資格</h3>
-              <p>多數公司規定零股股東需<strong>「親自出席」</strong>或<strong>「參加電子投票」</strong>才具備領取資格。請查看卡片中的「零股領取」欄位。</p>
+              <p>
+                若顯示為「✅ 零股可領」，代表您只需完成電子投票即可領取。<br/>
+                若顯示為「❌ 零股不發放」，代表該公司<strong>不發放</strong>紀念品給零股股東，或者您必須<strong>親自出席</strong>股東會才能領取（通常不建議）。
+              </p>
             </div>
             <div className="guide-item">
               <h3>2. 電子投票方式</h3>

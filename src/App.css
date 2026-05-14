@@ -198,12 +198,14 @@
   color: var(--text-primary);
 }
 
-.detail-item .value:contains('✅') {
+.detail-item .value.success {
   color: var(--success);
+  font-weight: 600;
 }
 
-.detail-item .value:contains('❌') {
+.detail-item .value.danger {
   color: var(--danger);
+  font-weight: 600;
 }
 
 .detail-item .location {
