@@ -15,7 +15,13 @@ const App = () => {
     localStorage.setItem('stock_inventory', JSON.stringify(inventory));
   }, [inventory]);
 
+  const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
   const triggerUpdate = async () => {
+    if (!isLocal) {
+      alert('線上版資料會每天自動更新。若需立即手動更新，請至 GitHub Actions 執行 Workflow。');
+      return;
+    }
     setIsUpdating(true);
     try {
       const response = await fetch('http://localhost:3001/api/update', { method: 'POST' });
@@ -76,7 +82,7 @@ const App = () => {
             onClick={triggerUpdate}
             disabled={isUpdating}
           >
-            {isUpdating ? '同步中...' : '一鍵更新資訊'}
+            {isUpdating ? '同步中...' : isLocal ? '一鍵更新資訊' : '自動更新中'}
           </button>
         </div>
         <p>掌握您的股票庫存，不再錯過任何領取機會</p>
