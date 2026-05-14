@@ -8,6 +8,9 @@ on:
     - cron: '0 0 * * *' # 每天凌晨執行一次更新
   workflow_dispatch: # 允許手動從 GitHub 介面觸發
 
+permissions:
+  contents: write # 必須設定權限才能推送到 gh-pages 分支
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -18,7 +21,7 @@ jobs:
       - name: Setup Node ⚙️
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24 # 更新至最新的 Node.js 版本
           cache: 'npm'
 
       - name: Install Dependencies 📦
